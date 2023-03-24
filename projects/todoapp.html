@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #121212;
+      color: white;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1> TODO List </h1>
+    <input type="text" id="uin" />
+    <button id="enter">Enter</button>
+    <ul>
+      <li class='demo'>Demo Task</li>
+      <li class='demo'>Demo Task</li>
+      <li class='demo'>Demo Task</li>
+      <li class='demo'>Demo Task</li>
+    </ul>
+  </main>
+</body>
+<script>
+  var button = document.getElementById("enter")
+  var input = document.getElementById("uin")
+  var ul = document.querySelector("ul")
+  var demo = document.getElementsByClassName("demo")
+  function inpLn() { return input.value.length; }
+  
+  function creatElm() {
+    for (let i = 0; i < demo.length; i++) { ul.removeChild(demo[i]) }
+    var li = document.createElement("li")
+    li.appendChild(document.createTextNode(input.value))
+    ul.appendChild(li)
+    input.value = ""; 
+  }
+  function addEleC() { if (inpLn() > 0) { creatElm() } }
+  function addEleK() { if (inpLn() > 0 && event.keyCode === 13) { creatElm() } }
+  
+  button.addEventListener("click", addEleC)
+  input.addEventListener("keypress", addEleK)
+</script>
+</html>

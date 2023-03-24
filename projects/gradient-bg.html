@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+      height: 100vh;
+    }
+  </style>
+</head>
+<body id="bid">
+  <main>
+    <h3>Select Colors to See Magic</h3>
+    <input type="color" value="#eeaeca" id="c1">
+    <input type="color" value="#94bbe9" id="c2">
+  </main>
+</body>
+<script>
+  var c1 = document.getElementById("c1");
+  var c2 = document.getElementById("c2");
+  var css = document.querySelector("h3");
+  var body = document.getElementById("bid");
+  c1.addEventListener("input", colorS);
+  c2.addEventListener("input", colorS);
+  function colorS() {
+    body.style.background = "linear-gradient(to right," + c1.value + ", " + c2.value + ")";
+    css.textContent = body.style.background + ";";
+  }
+</script>
+</html>
